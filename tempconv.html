@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: radial-gradient(purple, blue, red);
+        height: 100vh;
+      }
+
+      .hero {
+        display: flex;
+        justify-content: center;
+        transform: translate(0px, 50px);
+      }
+      /* .input-hold {
+        margin-left: 10px;
+        max-width: 180px;
+        display: flex;
+        align-items: center;
+      } */
+
+      input {
+        width: 180px;
+        height: 20px;
+        border-radius: 5px;
+        margin-left: 10px;
+      }
+      input::placeholder {
+        color: blue;
+      }
+      p {
+        color: white;
+        margin-left: 10px;
+      }
+      #main {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 20px;
+        row-gap: 20px;
+      }
+
+      #main div {
+        border: 1px solid black;
+        width: 100%;
+      }
+      .header-div {
+        text-align: center;
+        width: 100%;
+      }
+      @media (max-width: 900px) {
+        #main {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (min-width: 901px) and (max-width: 1500px) {
+        #main {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-div">
+      <h1>TEMPERATURE CONVERTER</h1>
+      <h2>CELSIUS - FAHRENHEIT - KELVIN</h2>
+    </div>
+    <div class="hero">
+      <div id="main">
+        <div>
+          <p>celsius to fahrenheit conversion</p>
+
+          <input
+            class="celsius input"
+            type="number"
+            placeholder="enter degrees in celsius"
+          />
+
+          <button class="convert-1 button">convert</button>
+          <p class="result-1"></p>
+        </div>
+
+        <div>
+          <p>fahrenheit to celsius conversion</p>
+          <input
+            class="fahrenheit input"
+            type="number"
+            placeholder="enter degrees in fahrenheit"
+          />
+          <button class="convert-2 button">convert</button>
+          <p class="result-2"></p>
+        </div>
+
+        <div>
+          <p>kelvin to celsius conversion</p>
+          <input
+            class="kelvin input"
+            type="number"
+            placeholder="enter degrees in kelvin"
+          />
+          <button class="convert-3 button">convert</button>
+          <p class="result-3"></p>
+        </div>
+
+        <div>
+          <p>celsius to kelvin conversion</p>
+          <input
+            class="celsius2 input"
+            type="number"
+            placeholder="enter degrees in celsius"
+          />
+          <button class="convert-4 button">convert</button>
+          <p class="result-4"></p>
+        </div>
+
+        <div>
+          <p>fahrenheit to kelvin conversion</p>
+          <input
+            class="fahrenheit2 input"
+            type="number"
+            placeholder="enter degrees in fahrenheit"
+          />
+          <button class="convert-5 button">convert</button>
+          <p class="result-5"></p>
+        </div>
+
+        <div>
+          <p>kelvin to fahrenheit conversion</p>
+          <input
+            class="kelvin2 input"
+            type="number"
+            placeholder="enter degrees in kelvin"
+          />
+          <button class="convert-6 button">convert</button>
+          <p class="result-6"></p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.querySelector(".convert-1").onclick = () => {
+        document.querySelector(".convert-1").disabled = true;
+        var celsius = document.querySelector(".celsius").value;
+        var result = document.querySelector(".result-1");
+        result.innerHTML = (celsius * 1.8 + 32).toFixed(2);
+        document.querySelector(".celsius").value = "";
+      };
+      document.querySelector(".convert-2").onclick = () => {
+        var fahrenheit = document.querySelector(".fahrenheit").value;
+        var result = document.querySelector(".result-2");
+        result.innerHTML = ((fahrenheit - 32) * (5 / 9)).toFixed(2);
+        document.querySelector(".fahrenheit").value = "";
+        document.querySelector(".convert-2").disabled = true;
+      };
+      document.querySelector(".convert-3").onclick = () => {
+        var kelvin = document.querySelector(".kelvin").value;
+        var result = document.querySelector(".result-3");
+        result.innerHTML = (kelvin - 273.15).toFixed(2);
+        document.querySelector(".kelvin").value = "";
+        document.querySelector(".convert-3").disabled = true;
+      };
+      document.querySelector(".convert-4").onclick = () => {
+        var celsius = document.querySelector(".celsius2").value;
+        var result = document.querySelector(".result-4");
+        result.innerHTML = (Number(celsius) + 273.15).toFixed(2);
+        document.querySelector(".celsius2").value = "";
+        document.querySelector(".convert-4").disabled = true;
+      };
+      document.querySelector(".convert-5").onclick = () => {
+        var fahrenheit = document.querySelector(".fahrenheit2").value;
+        var result = document.querySelector(".result-5");
+        result.innerHTML = ((fahrenheit - 32) * (5 / 9) + 273.15).toFixed(2);
+        document.querySelector(".fahrenheit2").value = "";
+        document.querySelector(".convert-5").disabled = true;
+      };
+
+      document.querySelector(".convert-6").onclick = () => {
+        var kelvin = document.querySelector(".kelvin2").value;
+        var result = document.querySelector(".result-6");
+        result.innerHTML = ((kelvin - 273.15) * 1.8 + 32 + 0.27).toFixed(2);
+        document.querySelector(".kelvin2").value = "";
+        document.querySelector(".convert-6").disabled = true;
+      };
+    </script>
+    <script src="test.js"></script>
+  </body>
+</html>
